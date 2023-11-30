@@ -16,8 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from job_portal.views import indexview 
-
+from django.urls import path
+from job_portal.views import Jobs4uView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', indexview , name ="index/"),
+    # api/urls.py
+
+
+
+    path('jobs4u/', Jobs4uView.as_view(), name='jobs4u-list'),
+
+
 ]

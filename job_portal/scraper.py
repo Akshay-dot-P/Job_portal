@@ -25,7 +25,7 @@ def jobs4u(request):
         # Extract the two words after 'for'
         designation = additional_info[index_of_for + 4:].split()[:1]
         desig = str(designation)
-        date_text = date_tag.get_text(strip=True)
+        date= date_tag.get_text(strip=True)
         desig_full = additional_info + desig.replace("[", ",").replace("]", ".")
         result_string = desig_full.replace(',', '').replace("'", '')
        
@@ -38,7 +38,7 @@ def jobs4u(request):
 
                 result_string = print(f"Title: {info},\n Degree/ batch: {result_string},\n location: {location},\n Date Text: {date_text}\n Link: {link}\n")
         else:
-            result_string = print(f"Title: {info},\n Date Text: {date_text}\n  Link: {link}\n")
+            result_string = print(f"Title: {info},\n Date Text: {date}\n  Link: {link}\n")
             
     return result_string
 jobs4u(request=None)    
@@ -67,11 +67,11 @@ def fresherhunt(request):
 
     for h2_tag, a_tage in zip(h2_tags, a_tags):
         a_tag = h2_tag.find('a')
-        a_tages = a_tage.text
+        date = a_tage.text
         if a_tag and a_tages:
             link = a_tag.get('href')
             title = a_tag.text
-            print(f"Title: {title}, \nLink: {link}\n date: {a_tages} \n")
+            print(f"Title: {title}, \nLink: {link}\n date: {date} \n")
 
 
 fresherhunt(request=None)
